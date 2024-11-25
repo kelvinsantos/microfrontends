@@ -1,102 +1,143 @@
-import Head from 'next/head';
-import React from 'react';
-typeof window !== 'undefined' && console.log(window.checkout);
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Carousel } from "react-responsive-carousel";
+import ProductSimpleCard from "../components/product/product-simple-card";
 
-const Home = () => {
+export default function Home() {
+  const list = [1, 2, 3, 4, 5, 6, 7, 8];
+
   return (
     <div>
-      <Head>
-        <title>Home</title>
-        <link rel="icon" href="/nextjs-ssr/home/public/favicon.ico" />
-      </Head>
-
-      <div className="hero">
-        <h1>Home Page</h1>
-        <h3 className="title">This is a federated page owned by localhost:3000</h3>
-      </div>
-      <div className="hero">
-        <h1 className="title">
-          Welcome to Next.js on Webpack 5! <code>home</code>
-        </h1>
-        <p className="description">
-          To get started, edit <code>pages/index.js</code> and save to reload.
-        </p>
-
-        <div className="row">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Learn more about Next.js in the documentation.</p>
-          </a>
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Next.js Learn &rarr;</h3>
-            <p>Learn about Next.js by following an interactive tutorial!</p>
-          </a>
-          <a href="https://github.com/zeit/next.js/tree/master/examples" className="card">
-            <h3>Examples &rarr;</h3>
-            <p>Find other example boilerplates on the Next.js GitHub.</p>
-          </a>
+      <div className="container py-3">
+        <div className="row mb-4">
+          <div className="col-12">
+            <Carousel
+              autoPlay={true}
+              infiniteLoop={true}
+              showArrows={false}
+              showStatus={false}
+              showThumbs={false}
+              transitionTime={500}
+              renderIndicator={(onClickHandler, isSelected, index, label) => {
+                if (isSelected) {
+                  return (
+                    <li className="d-inline-block m-2 text-light">
+                      <FontAwesomeIcon icon={["fas", "circle"]} size="xs" />
+                    </li>
+                  );
+                }
+                return (
+                  <li
+                    className="d-inline-block m-2 text-light text-opacity-50"
+                    onClick={onClickHandler}
+                    key={index}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <FontAwesomeIcon icon={["fas", "circle"]} size="xs" />
+                  </li>
+                );
+              }}
+            >
+              <div className="ratio ratio-21x9">
+                <img
+                  src="/images/online-shopping.jpg"
+                  alt="Cover image"
+                  className="rounded"
+                />
+              </div>
+              <div className="ratio ratio-21x9">
+                <img
+                  src="/images/online-shopping.jpg"
+                  alt="Cover image"
+                  className="rounded"
+                />
+              </div>
+              <div className="ratio ratio-21x9">
+                <img
+                  src="/images/online-shopping.jpg"
+                  alt="Cover image"
+                  className="rounded"
+                />
+              </div>
+            </Carousel>
+          </div>
+        </div>
+        <div className="row row-cols-1 row-cols-md-3 g-3 mb-4">
+          <div className="col">
+            <div className="card h-100 border-0 shadow-sm">
+              <figure className="figure card-body mb-0">
+                <div
+                  className="bg-secondary rounded-circle d-flex mb-2"
+                  style={{ width: 50, height: 50 }}
+                >
+                  <FontAwesomeIcon
+                    icon={["fas", "money-bill-alt"]}
+                    size="lg"
+                    className="text-primary m-auto"
+                  />
+                </div>
+                <h5 className="mb-1 fw-bold">Reasonable Price</h5>
+                <figcaption className="figure-caption text-dark">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-100 border-0 shadow-sm">
+              <figure className="figure card-body mb-0">
+                <div
+                  className="bg-secondary rounded-circle d-flex mb-2"
+                  style={{ width: 50, height: 50 }}
+                >
+                  <FontAwesomeIcon
+                    icon={["fas", "headset"]}
+                    size="lg"
+                    className="text-primary m-auto"
+                  />
+                </div>
+                <h5 className="mb-1 fw-bold">Customer Support 24/7</h5>
+                <figcaption className="figure-caption text-dark">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-100 border-0 shadow-sm">
+              <figure className="figure card-body mb-0">
+                <div
+                  className="bg-secondary rounded-circle d-flex mb-2"
+                  style={{ width: 50, height: 50 }}
+                >
+                  <FontAwesomeIcon
+                    icon={["fas", "truck"]}
+                    size="lg"
+                    className="text-primary m-auto"
+                  />
+                </div>
+                <h5 className="mb-1 fw-bold">Fast Delivery</h5>
+                <figcaption className="figure-caption text-dark">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <h4 className="mb-3 fw-semibold">New products</h4>
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 mb-5">
+          {list.map((e, i) => {
+            return (
+              <div className="col" key={i}>
+                <ProductSimpleCard id={i} title={`Product ${i}`} />
+              </div>
+            );
+          })}
         </div>
       </div>
-
-      <style jsx>{`
-        .hero {
-          width: 100%;
-          color: #333;
-        }
-
-        .title {
-          margin: 0;
-          width: 100%;
-          padding-top: 80px;
-          line-height: 1.15;
-          font-size: 48px;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .row {
-          max-width: 880px;
-          margin: 80px auto 40px;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-        }
-
-        .card {
-          padding: 18px 18px 24px;
-          width: 220px;
-          text-align: left;
-          text-decoration: none;
-          color: #434343;
-          border: 1px solid #9b9b9b;
-        }
-
-        .card:hover {
-          border-color: #067df7;
-        }
-
-        .card h3 {
-          margin: 0;
-          color: #067df7;
-          font-size: 18px;
-        }
-
-        .card p {
-          margin: 0;
-          padding: 12px 0 0;
-          font-size: 13px;
-          color: #333;
-        }
-      `}</style>
     </div>
   );
-};
-//
-Home.getInitialProps = async ctx => {
-  return {};
-};
-
-export default Home;
+}
