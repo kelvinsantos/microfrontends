@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import React from 'react';
-typeof window !== 'undefined' && console.log(window.checkout);
+import Head from "next/head";
+import React from "react";
+typeof window !== "undefined" && console.log(window.pipeline);
 
 const Home = () => {
   return (
@@ -12,7 +12,9 @@ const Home = () => {
 
       <div className="hero">
         <h1>Home Page</h1>
-        <h3 className="title">This is a federated page owned by localhost:3000</h3>
+        <h3 className="title">
+          This is a federated page owned by localhost:3000
+        </h3>
       </div>
       <div className="hero">
         <h1 className="title">
@@ -31,7 +33,10 @@ const Home = () => {
             <h3>Next.js Learn &rarr;</h3>
             <p>Learn about Next.js by following an interactive tutorial!</p>
           </a>
-          <a href="https://github.com/zeit/next.js/tree/master/examples" className="card">
+          <a
+            href="https://github.com/zeit/next.js/tree/master/examples"
+            className="card"
+          >
             <h3>Examples &rarr;</h3>
             <p>Find other example boilerplates on the Next.js GitHub.</p>
           </a>
@@ -95,7 +100,7 @@ const Home = () => {
   );
 };
 //
-Home.getInitialProps = async ctx => {
+Home.getInitialProps = async (ctx) => {
   return {};
 };
 

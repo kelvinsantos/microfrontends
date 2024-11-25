@@ -1,10 +1,10 @@
 {
-  "name": "nextjs-ssr_shop",
+  "name": "nextjs-ssr_pipeline",
   "version": "0.1.0",
   "scripts": {
-    "dev": "rm -rf .next; NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3001",
+    "dev": "rm -rf .next; NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3002",
     "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
-    "start": "NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3001"
+    "start": "NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3002"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "8.7.8",

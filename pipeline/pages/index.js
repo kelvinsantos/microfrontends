@@ -1,16 +1,18 @@
-import Head from 'next/head';
-import React from 'react';
+import Head from "next/head";
+import React from "react";
 
-const Checkout = () => (
+const Pipeline = () => (
   <div>
     <Head>
-      <title>Checkout</title>
-      <link rel="icon" href="/nextjs-ssr/checkout/public/favicon.ico" />
+      <title>Pipeline</title>
+      <link rel="icon" href="/nextjs-ssr/pipeline/public/favicon.ico" />
     </Head>
 
     <div className="hero">
-      <h1>Checkout Page</h1>
-      <h3 className="title">This is a federated page owned by localhost:3002</h3>
+      <h1>Pipeline Page</h1>
+      <h3 className="title">
+        This is a federated page owned by localhost:3002
+      </h3>
     </div>
     <style jsx>{`
       .hero {
@@ -32,4 +34,4 @@ const Checkout = () => (
   </div>
 );
 
-export default Checkout;
+export default Pipeline;
